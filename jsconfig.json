@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "paths": {
+      "*": ["*"],
+      "util": ["util"],
+      "dbOps": ["util/dbOps"],
+      "cfg": ["cfg"]
+    }
+  }
+}

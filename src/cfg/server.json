@@ -1,0 +1,42 @@
+{
+  "api": "",
+  "apikey": "df82555076154c75aedecc26c64506a9",
+  "secret": "bmri0iqXcUjPsGz6xKt09jUsqz36Yghh",
+  "apiUrl": "http://192.168.1.98:8000/server",
+  "db": {
+    "client": "mysql",
+    "connection": {
+      "host": "192.168.1.99",
+      "port": "3306",
+      "user": "xgk",
+      "password": "369"
+    },
+    "acquireConnectionTimeout": 6000
+  },
+  "redis": {
+    "port": 6379,
+    "host": "192.168.1.100"
+  },
+  "fileServers": {
+    "hosts": ["192.168.1.98:9105"],
+    "token": "340e2dcad10a40d2b9f29db1db790eb6"
+  },
+  "log": {
+    "appenders": {
+      "console": { "type": "console" },
+      "logstash": {
+        "type": "@log4js-node/logstash-http",
+        "url": "http://192.168.1.98:9800/_bulk",
+        "application": "basic-server",
+        "logType": "application",
+        "logChannel": "node"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": ["console"],
+        "level": "debug"
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "name": "datamapping",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon --inspect src/index.js --exec babel-node",
+    "start:sql": "cross-env NODE_ENV=development DEBUG=knex:* nodemon --inspect src/index.js --exec babel-node",
+    "preview": "cross-env NODE_ENV=development npx babel-node src/index.js",
+    "build": "npx babel src -d dist/src --copy-files && cp package.json dist && cp run.sh dist",
+    "run": "node dist/index.js",
+    "lint": "eslint --ext .js src",
+    "precommit": "npm run lint",
+    "test": "ava -m=ext* -v test"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-transform-modules-commonjs",
+      "lodash",
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "cfg": "./src/cfg",
+            "util": "./src/util",
+            "dbOps": "./src/util/dbOps"
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@log4js-node/logstash-http": "1.0.0",
+    "bluebird": "3.5.3",
+    "dayjs": "1.8.6",
+    "bookshelf": "0.14.2",
+    "bookshelf-transaction-manager": "0.2.4",
+    "fs-extra": "7.0.1",
+    "knex": "^0.16.3",
+    "koa": "2.7.0",
+    "koa-body": "4.0.8",
+    "koa-logger": "3.2.0",
+    "jsonwebtoken": "8.4.0",
+    "koa-router": "7.4.0",
+    "lodash": "4.17.11",
+    "log4js": "4.0.2",
+    "moment": "^2.24.0",
+    "mysql": "^2.16.0",
+    "node-fetch": "2.3.0",
+    "require-dir": "1.2.0",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.3.3",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "7.2.0",
+    "babel-plugin-lodash": "3.3.4",
+    "babel-plugin-module-resolver": "3.2.0",
+    "cross-env": "5.2.0",
+    "eslint": "5.14.1",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.16.0",
+    "husky": "1.3.1",
+    "nodemon": "1.18.10"
+  },
+  "eslintIgnore": [
+    "src/util/xmljson.js"
+  ],
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "indent": 0,
+      "no-mixed-operators": 0,
+      "linebreak-style": 0,
+      "operator-linebreak": 0,
+      "implicit-arrow-linebreak": 0,
+      "function-paren-newline": 0,
+      "comma-dangle": 0,
+      "object-curly-spacing": 1,
+      "global-require": 0,
+      "consistent-return": 0,
+      "arrow-parens": 0,
+      "spaced-comment": 1,
+      "no-multi-spaces": 1,
+      "no-trailing-spaces": 0,
+      "space-before-function-paren": 0,
+      "arrow-body-style": 0,
+      "prefer-const": 1,
+      "prefer-template": 0,
+      "no-else-return": 0,
+      "no-param-reassign": 0,
+      "no-throw-literal": 0,
+      "no-plusplus": 0,
+      "no-continue": 0,
+      "no-restricted-syntax": 0,
+      "no-use-before-define": 0,
+      "no-nested-ternary": 0,
+      "no-bitwise": 0,
+      "no-cond-assign": 0,
+      "no-shadow": 0,
+      "no-case-declarations": 0,
+      "import/no-unresolved": 0,
+      "import/prefer-default-export": 0,
+      "require-yield": 1,
+      "guard-for-in": 0,
+      "space-before-blocks": 0,
+      "default-case": 0,
+      "no-unused-vars": 1,
+      "class-methods-use-this": 0,
+      "func-names": 0,
+      "max-len": 0,
+      "object-curly-newline": 0
+    }
+  },
+  "nodemonConfig": {
+    "delay": 1000
+  },
+  "author": "",
+  "license": "ISC"
+}

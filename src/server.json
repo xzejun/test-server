@@ -1,0 +1,7 @@
+{
+  "name": "datamapping",
+  "port": 9113,
+  "db": {
+    "connection": { "database": "yx_datamapping" }
+  }
+}
